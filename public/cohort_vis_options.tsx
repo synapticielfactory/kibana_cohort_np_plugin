@@ -85,6 +85,7 @@ function CohortOptionsParams({ stateParams, setValue }: VisOptionsProps<CohortVi
         checked={stateParams.table}
         onChange={({ target: { checked } }) => onChangeTable(Boolean(checked))}
       />
+      {/*
       <EuiCheckbox
         id="pivottable"
         label="Use React Pivot Table"
@@ -97,6 +98,7 @@ function CohortOptionsParams({ stateParams, setValue }: VisOptionsProps<CohortVi
         checked={stateParams.sample_table}
         onChange={({ target: { checked } }) => onChangeSampleTable(Boolean(checked))}
       />
+      */}
     </Fragment>
   );
 }

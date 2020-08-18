@@ -172,6 +172,7 @@ export function showTable(mapColors, dateHistogram, element, data, valueFn, form
  * @param {function} formatTime
  */
 export function showGraph(percentual, element, measures, data, valueFn, formatTime) {
+  // append the svg object to the HTMLElement
   const svg = d3
     .select(element)
     .append('svg')
@@ -188,13 +189,11 @@ export function showGraph(percentual, element, measures, data, valueFn, formatTi
 
   const line = d3.svg
     .line()
-    // .curve(d3.curveBasis)
     .x((d) => x(d.period))
     .y((d) => y(valueFn(d)));
 
-  const xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(5);
-
-  const yAxis = d3.svg.axis().scale(y).orient('left').ticks(5);
+  const xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(10);
+  const yAxis = d3.svg.axis().scale(y).orient('left').ticks(10);
 
   const tooltip = d3
     .select('body')
@@ -216,7 +215,7 @@ export function showGraph(percentual, element, measures, data, valueFn, formatTi
     .data(data)
     .enter()
     .append('circle')
-    .attr('r', 5)
+    .attr('r', 3) // Size of the circle
     .attr('cx', (d) => x(d.period))
     .attr('cy', (d) => y(valueFn(d)))
     .style('fill', (d) => z(formatTime(d.date)))
@@ -243,12 +242,12 @@ export function showGraph(percentual, element, measures, data, valueFn, formatTi
     .attr('class', axisYClassName)
     .call(yAxis)
     .append('text')
-    .attr('y', 6)
-    .attr('x', 6)
-    .attr('dy', '.45em')
+    .attr('y', 10)
+    .attr('x', 10)
+    .attr('dy', '0.3em')
     .style('font', '10px sans-serif')
     .style('text-anchor', 'start')
-    .text(percentual ? 'Percentual %' : 'Total Count');
+    .text(percentual ? '%' : 'Total');
 
   const cohortDate = g
     .selectAll(`.${cohortDateClassName}`)

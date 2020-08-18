@@ -22,7 +22,7 @@
 import { DataPublicPluginSetup } from '../../../src/plugins/data/public';
 import { ExprVis, VisParams } from '../../../src/plugins/visualizations/public';
 // import { CohortVisComponent } from './components/cohort_vis_controller';
-import { CohortVisualizationProvider } from './components/cohort_visualization';
+import { createCohortVisualization } from './components/cohort_visualization';
 import { CohortOptionsParams } from './cohort_vis_options';
 import { Schemas } from '../../../src/plugins/vis_default_editor/public';
 import { AggGroupNames } from '../../../src/plugins/data/public';
@@ -36,6 +36,7 @@ export interface CohortVisComponentProp {
 }
 
 export function getCohortVisDefinition() {
+  const CohortVisualization = createCohortVisualization();
   return {
     name: 'cohort',
     title: 'Cohort',
@@ -56,7 +57,7 @@ export function getCohortVisDefinition() {
       // component: CohortVisComponent,
     },
     // Base Visualization Type
-    visualization: CohortVisualizationProvider,
+    visualization: CohortVisualization,
     editorConfig: {
       optionsTemplate: CohortOptionsParams,
       enableAutoApply: true,
