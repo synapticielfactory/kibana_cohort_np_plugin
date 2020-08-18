@@ -1,0 +1,9 @@
+{
+  "id": "cohort",
+  "version": "kibana",
+  "ui": true,
+  "server": true,
+  "requiredPlugins": ["expressions", "visualizations", "data", "charts"],
+  "requiredBundles": ["kibanaUtils", "kibanaReact"],
+  "optionalPlugins": []
+}

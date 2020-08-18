@@ -1,0 +1,25 @@
+{
+  "name": "cohort-analysis",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Cohort Analysis",
+  "kibana": {
+    "version": "kibana",
+    "templateVersion": "1.0.0"
+  },
+  "scripts": {
+    "preinstall": "node ../../preinstall_check",
+    "kbn": "node ../../scripts/kbn",
+    "es": "node ../../scripts/es",
+    "lint": "../../node_modules/.bin/eslint .",
+    "start": "../../node_modules/.bin/plugin-helpers start --oss --no-watch",
+    "test:server": "../../node_modules/.bin/plugin-helpers test:server",
+    "test:browser": "../../node_modules/.bin/plugin-helpers test:browser",
+    "build": "../../node_modules/.bin/plugin-helpers build"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.2",
+    "react-pivottable": "^0.10.0",
+    "xlsx": "^0.16.4"
+  }
+}
